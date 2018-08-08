@@ -5,10 +5,19 @@ set autowriteall					"Always save files when switching buffers.
 "-----General Settings------"
 set backspace=indent,eol,start  			"Make backspaces work.
 let mapleader = ','					"Change the default leader to a comma.
-set number						"Activate line-numbers.
+set number                                              "Activate line-numbers.
+set encoding=utf-8                                      "Standard encoding
+
+"Tabsettings
+set tabstop=8
+set expandtab                                           "Use spaces
+set softtabstop=4
+set shiftwidth=4
 
 "-----Visuals-----"
 colorscheme gruvbox
+let g:gruvbox_contrast_dark = 'soft'
+
 set t_CO=256 						"Use 256 colors. Good for terminal vim.
 set guifont=Fira_Code:h12
 set macligatures
@@ -50,18 +59,26 @@ augroup autosourcing
 	autocmd BufWritePost .vimrc source %
 augroup END
 
+"Trigger php-cs-fixer on save.
+augroup phpfixing
+	autocmd BufWritePost *.php silent! call PhpCsFixerFixFile()
+augroup END
+
 "------Plugins-----"
 " Specify a directory for plugins
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 
-Plug 'w0rp/ale'
+Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-vinegar'
 Plug 'scrooloose/nerdtree'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mileszs/ack.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-commentary'
+Plug 'stephpy/vim-php-cs-fixer'
 
 call plug#end()
 
@@ -97,3 +114,8 @@ let NERDTreeHijackNetrw = 0
 "Toggle sidebar
 nmap <Leader>1 :NERDTreeToggle<cr>
 
+"Php-cs fixer
+let g:php_cs_fixer_rules = "@PSR2"          " options: --rules (default:@PSR2)
+let g:php_cs_fixer_cache = ".php_cs.cache" " options: --cache-file
+let g:php_cs_fixer_config_file = '.php_cs' " options: --config
+let g:php_cs_fixer_php_path = '~/.composer/vendor/bin/php-cs-fixer'
