@@ -73,3 +73,7 @@ export LANG=en_US.UTF-8
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
+#
+# NVM node version manager
+export NVM_DIR=~/.dotfiles/.nvm
+source $(brew --prefix nvm)/nvm.sh
