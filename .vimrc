@@ -9,7 +9,7 @@ set number                                              "Activate line-numbers.
 set encoding=utf-8                                      "Standard encoding
 
 "Tabsettings
-set tabstop=8
+set tabstop=4
 set expandtab                                           "Use spaces
 set softtabstop=4
 set shiftwidth=4
@@ -57,12 +57,16 @@ nmap <Leader>f :tag<cr>
 augroup autosourcing
 	autocmd!
 	autocmd BufWritePost .vimrc source %
-augroup END
-
-"Trigger php-cs-fixer on save.
-augroup phpfixing
+    "Trigger php-cs-fixer on save.
 	autocmd BufWritePost *.php silent! call PhpCsFixerFixFile()
 augroup END
+
+" If you prefer the Omni-Completion tip window to close when a selection is
+" made, these lines close it on movement in insert mode or when leaving
+" insert mode
+autocmd CursorMovedI * if pumvisible() == 0|silent! pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|silent! pclose|endif
+
 
 "------Plugins-----"
 " Specify a directory for plugins
@@ -71,14 +75,26 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-vinegar'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-commentary'
 Plug 'scrooloose/nerdtree'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mileszs/ack.vim'
 Plug 'vim-airline/vim-airline'
-Plug 'tpope/vim-fugitive'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-commentary'
 Plug 'stephpy/vim-php-cs-fixer'
+Plug 'arnaud-lb/vim-php-namespace'
+Plug 'w0rp/ale'
+Plug 'ludovicchabant/vim-gutentags'
+
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
 
 call plug#end()
 
@@ -119,3 +135,33 @@ let g:php_cs_fixer_rules = "@PSR2"          " options: --rules (default:@PSR2)
 let g:php_cs_fixer_cache = ".php_cs.cache" " options: --cache-file
 let g:php_cs_fixer_config_file = '.php_cs' " options: --config
 let g:php_cs_fixer_php_path = '~/.composer/vendor/bin/php-cs-fixer'
+
+"Ale linter
+let g:ale_php_phpcs_standard = 'PSR2'
+
+"Php namespace
+function! IPhpInsertUse()
+    call PhpInsertUse()
+    call feedkeys('a',  'n')
+endfunction
+autocmd FileType php inoremap <Leader>u <Esc>:call IPhpInsertUse()<CR>
+autocmd FileType php noremap <Leader>u :call PhpInsertUse()<CR>
+
+function! IPhpExpandClass()
+    call PhpExpandClass()
+    call feedkeys('a', 'n')
+endfunction
+autocmd FileType php inoremap <Leader>e <Esc>:call IPhpExpandClass()<CR>
+autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
+
+"Deoplete autocompletion
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#auto_completion_start_length = 1
+
+"Gutentags
+let g:gutentags_ctags_exclude_wildignore = 1
+let g:gutentags_ctags_exclude = ['*.css', '*.html', '*.json', '*.xml',
+                            \ 'node_modules/*', '*.map', '*.map', '*.js.map',
+                            \ '*.phar', '*.ini', '*.rst', '*.md',
+                            \ '*vendor/*/test*', '*vendor/*/Test*',
+                            \ '*var/cache*', '*var/log*'] 
