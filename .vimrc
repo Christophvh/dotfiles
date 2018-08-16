@@ -127,8 +127,10 @@ endif
 
 "NerdTree
 let NERDTreeHijackNetrw = 0
+let NERDTreeShowHidden=1
 "Toggle sidebar
 nmap <Leader>1 :NERDTreeToggle<cr>
+
 
 "Php-cs fixer
 let g:php_cs_fixer_rules = "@PSR2"          " options: --rules (default:@PSR2)
