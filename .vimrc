@@ -1,16 +1,17 @@
 set nocompatible					"Always use vim instead of vi.
 syntax enable
 set autowriteall					"Always save files when switching buffers.
+set complete=.,w,b,u                "Change basic complete to be better"
 
 "-----General Settings------"
-set backspace=indent,eol,start  			"Make backspaces work.
+set backspace=indent,eol,start  	"Make backspaces work.
 let mapleader = ','					"Change the default leader to a comma.
-set number                                              "Activate line-numbers.
-set encoding=utf-8                                      "Standard encoding
+set encoding=utf-8                  "Standard encoding
+set number relativenumber           "Hybrid line numbers
 
 "Tabsettings
 set tabstop=4
-set expandtab                                           "Use spaces
+set expandtab                       "Use spaces
 set softtabstop=4
 set shiftwidth=4
 
@@ -20,7 +21,9 @@ let g:gruvbox_contrast_dark = 'soft'
 
 set t_CO=256 						"Use 256 colors. Good for terminal vim.
 set guifont=Fira_Code:h12
-set macligatures
+if has("gui_macvim")
+    set macligatures
+endif
 set linespace=13					"Macvim specific line-height.
 
 set guioptions-=l					"Set of options to remove scrollbars.
@@ -73,20 +76,25 @@ autocmd InsertLeave * if pumvisible() == 0|silent! pclose|endif
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 
+Plug 'w0rp/ale'
+Plug 'mileszs/ack.vim'
 Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'scrooloose/nerdtree'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'mileszs/ack.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 Plug 'stephpy/vim-php-cs-fixer'
 Plug 'arnaud-lb/vim-php-namespace'
-Plug 'w0rp/ale'
 Plug 'ludovicchabant/vim-gutentags'
+Plug 'sheerun/vim-polyglot'
+Plug 'tobyS/vmustache'
+Plug 'tobyS/pdv'
+Plug 'SirVer/ultisnips'
+Plug 'ervandew/supertab'
 
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -104,6 +112,7 @@ call plug#end()
 set wildignore+=*/tmp/*,*.so,*.swp     " Linux/MacOSX
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 let g:ctrlp_match_window = 'top,order:ttb,min:1,max:30,results:30'
+let g:ctrlp_show_hidden = 1
 
 nmap <D-p> :CtrlP<cr>
 "Search based on the tag inside a file
@@ -113,13 +122,12 @@ nmap <D-e> :CtrlPMRUFiles<cr>
 
 "" The Silver Searcher
 if executable('ag')
-	
   let g:ackprg = 'ag --vimgrep'      
 " Use ag over grep
   set grepprg=ag\ --nogroup\ --nocolor
 
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  let g:ctrlp_user_command = 'ag %s -l --hidden --nocolor --ignore images --ignore svg --ignore fonts -g ""'
 
   " " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
@@ -167,3 +175,22 @@ let g:gutentags_ctags_exclude = ['*.css', '*.html', '*.json', '*.xml',
                             \ '*.phar', '*.ini', '*.rst', '*.md',
                             \ '*vendor/*/test*', '*vendor/*/Test*',
                             \ '*var/cache*', '*var/log*'] 
+
+"Vim test
+" make test commands execute using iterm  
+let test#strategy = "iterm"
+
+
+"PDV docblocks
+let g:pdv_template_dir = $HOME ."/.dotfiles/.vim/plugged/pdv/templates_snip"
+nnoremap <leader>d :call pdv#DocumentWithSnip()<CR>
+
+"Ultisnips
+set runtimepath+=~/.dotfiles/.vim/snippets
+let g:UltiSnipsSnippetsDir = "~/.dotfiles/.vim/snippets/UltiSnips"
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
