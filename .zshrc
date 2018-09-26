@@ -68,6 +68,12 @@ export LANG=en_US.UTF-8
    export EDITOR='mvim'
  fi
 
+#Fzf love.
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND='ag -a --hidden --ignore .git -g ""'
+export FZF_CTRL_T_COMMAND='ag -a --hidden --ignore .git -g ""'
+[ -f ~/.dotfiles/.fzf.zsh ] && source ~/.dotfiles/.fzf.zsh
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 

@@ -12,6 +12,7 @@ brew 'zsh-completions'
 
 # Vim related
 brew 'the_silver_searcher'
+brew 'fzf'
 
 # Install GNU core utilities (those that come with macOS are outdated)
 brew 'coreutils'
