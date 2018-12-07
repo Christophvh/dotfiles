@@ -17,7 +17,7 @@ set shiftwidth=4
 "------Plugins-----"
 " Specify a directory for plugins
 " - Avoid using standard Vim directory names like 'plugin'
-call plug#begin('~/.vim/plugged')
+call plug#begin($HOME . '/.vim/plugged')
 
 Plug 'w0rp/ale'                        " Async Tool for adding linters,checking,..
 Plug 'mileszs/ack.vim'
@@ -39,8 +39,9 @@ Plug 'SirVer/ultisnips'
 Plug 'ervandew/supertab'
 Plug '/usr/local/opt/fzf'               " Reference to homebrew fzf install
 Plug 'junegunn/fzf.vim'                 " FZF vim wrapper 
-Plug 'phpactor/phpactor'                " PHP refactoring and introspection
+Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'} " PHP refactoring and introspection
 Plug 'kristijanhusak/deoplete-phpactor' " PHP Deoplete source'
+Plug 'mattn/emmet-vim'                  " Emmet vim
 
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -174,12 +175,12 @@ let test#strategy = "iterm"
 
 
 "PDV docblocks
-let g:pdv_template_dir = $HOME ."/.dotfiles/.vim/plugged/pdv/templates_snip"
+let g:pdv_template_dir = $HOME ."/.vim/plugged/pdv/templates_snip"
 nnoremap <leader>d :call pdv#DocumentWithSnip()<CR>
 
 "Ultisnips
 set runtimepath+=~/.dotfiles/.vim/snippets
-let g:UltiSnipsSnippetsDir = "~/.dotfiles/.vim/snippets/UltiSnips"
+let g:UltiSnipsSnippetsDir = "~/.vim/snippets/UltiSnips"
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
@@ -231,3 +232,8 @@ let g:fzf_colors =
   \ 'marker':  ['fg', 'Keyword'],
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
+
+"Vim-emmet
+let g:user_emmet_install_global = 0
+autocmd FileType html,css,php,blade.php EmmetInstall
+imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
