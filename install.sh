@@ -14,6 +14,9 @@ brew update
 brew tap homebrew/bundle
 brew bundle
 
+# Install PHP extensions with PECL
+pecl install imagick
+
 # Make ZSH the default shell environment
 chsh -s $(which zsh)
 
@@ -22,7 +25,7 @@ curl -sS https://getcomposer.org/installer | php
 mv composer.phar /usr/local/bin/composer
 
 # Install global Composer packages
-/usr/local/bin/composer global require laravel/installer
+/usr/local/bin/composer global require laravel/installer laravel/valet
 
 # Install global NPM packages
 npm install --global yarn now doctoc

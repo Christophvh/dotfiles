@@ -42,27 +42,39 @@ brew 'imagemagick'
 
 # Apps
 cask 'alfred'
-cask 'docker'
-cask 'firefox'
-cask 'google-chrome'
-cask 'iterm2'
 cask 'java'
 cask 'slack'
-cask 'sublime-text'
-cask 'vagrant'
-cask 'virtualbox'
-cask 'virtualbox-extension-pack'
 cask 'vlc'
 cask 'sourcetree'
 cask 'spotify'
-cask 'cyberduck'
 cask 'moom'
 cask 'avocode'
 cask 'notion'
-cask 'tableplus'
 cask 'caffeine'
 cask 'plex'
+cask 'cleanmymac'
+cask 'dropbox'
+cask 'itsycal'
+
+# Dev apps
 cask 'insomnia'
+cask 'tableplus'
+cask 'vagrant'
+cask 'virtualbox'
+cask 'virtualbox-extension-pack'
+cask 'cyberduck'
+cask 'figma'
+cask 'docker'
+cask 'iterm2'
+
+# Browsers
+cask 'firefox'
+cask 'google-chrome'
+cask 'microsoft-edge'
+
+# Editors
+cask 'sublime-text'
+cask 'visual-studio-code'
 
 # Quicklook
 cask 'qlcolorcode'
