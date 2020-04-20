@@ -25,10 +25,11 @@ mv composer.phar /usr/local/bin/composer
 /usr/local/bin/composer global require laravel/installer
 
 # Install global NPM packages
-npm install --global yarn now
+npm install --global yarn now doctoc
 
-# Create a Projecten directory
+# Create a Projects directory
 mkdir $HOME/Documents/Projects
+mkdir $HOME/Documents/Personal-projects
 
 # Set macOS preferences
 # We will run this last because this will reload the shell

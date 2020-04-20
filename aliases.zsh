@@ -9,7 +9,8 @@ alias ngrok="$HOME/ngrok"
 
 # Directories
 alias dotfiles="cd $DOTFILES"
-alias projects="cd $HOME/Documents/Projecten"
+alias projects="cd $HOME/Documents/Projects"
+alias personal="cd $HOME/Documents/Personal-projects"
 
 # Laravel
 alias art="php artisan"
