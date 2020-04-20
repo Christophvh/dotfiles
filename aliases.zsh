@@ -5,6 +5,7 @@ alias reloaddns="dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
 alias ll="$(brew --prefix coreutils)/libexec/gnubin/ls -ahlF --color --group-directories-first"
 alias weather="curl -4 http://wttr.in"
 alias zshconfig="mvim ~/.dotfiles/.zshrc"
+alias ngrok="$HOME/ngrok"
 
 # Directories
 alias dotfiles="cd $DOTFILES"
@@ -20,3 +21,4 @@ alias vhalt="vagrant halt"
 alias vssh="vagrant ssh"
 alias vreload="vagrant reload"
 alias vrebuild="vagrant destroy --force && vagrant up"
+

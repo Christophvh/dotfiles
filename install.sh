@@ -28,7 +28,7 @@ mv composer.phar /usr/local/bin/composer
 npm install --global yarn now
 
 # Create a Projecten directory
-mkdir $HOME/Documents/Projecten
+mkdir $HOME/Documents/Projects
 
 # Set macOS preferences
 # We will run this last because this will reload the shell

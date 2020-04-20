@@ -42,6 +42,7 @@ Plug 'junegunn/fzf.vim'                 " FZF vim wrapper
 Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'} " PHP refactoring and introspection
 Plug 'kristijanhusak/deoplete-phpactor' " PHP Deoplete source'
 Plug 'mattn/emmet-vim'                  " Emmet vim
+Plug 'vim-vdebug/vdebug'
 
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
