@@ -1,16 +1,23 @@
 # Shortcuts
 alias copyssh="pbcopy < $HOME/.ssh/id_rsa.pub"
 alias reloadcli="source $HOME/.zshrc"
-alias reloaddns="dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
-alias ll="$(brew --prefix coreutils)/libexec/gnubin/ls -ahlF --color --group-directories-first"
 alias weather="curl -4 http://wttr.in"
-alias zshconfig="mvim ~/.dotfiles/.zshrc"
+alias zshconfig="nvim ~/.dotfiles/.zshrc"
 alias ngrok="$HOME/ngrok"
 
 # Directories
 alias dotfiles="cd $DOTFILES"
 alias projects="cd $HOME/Documents/Projects"
 alias personal="cd $HOME/Documents/Personal-projects"
+
+# use nvim, but don't make me think about it
+alias vim="nvim"
+
+# Filesystem aliases
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
 
 # Laravel
 alias art="php artisan"
