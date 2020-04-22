@@ -13,6 +13,7 @@ set tabstop=4
 set expandtab                       "Use spaces
 set softtabstop=4
 set shiftwidth=4
+set clipboard=unnamed
 
 "------Plugins-----"
 " Specify a directory for plugins

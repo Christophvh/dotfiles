@@ -4,27 +4,19 @@ tap 'homebrew/cask-fonts'
 tap 'homebrew/cask-versions'
 tap 'homebrew/bundle'
 
-# Install ZSH
-brew 'zsh'
-brew 'zsh-completions'
-
-# Vim related
-brew 'the_silver_searcher'
-brew 'fzf'
-
 # Install GNU core utilities (those that come with macOS are outdated)
 brew 'coreutils'
 
 # Install GNU `find`, `locate`, `updatedb`, and `xargs`, g-prefixed
 brew 'findutils'
 
-# Install Bash 4
-brew 'bash'
-
 # Install more recent versions of some macOS tools
 brew 'homebrew/dupes/grep'
 
 # Install Binaries
+brew 'bash'
+brew 'zsh'
+brew 'zsh-completions'
 brew 'git'
 brew 'hub'
 brew 'tree'
@@ -33,11 +25,18 @@ brew 'mas'
 brew 'node'
 brew 'trash'
 brew 'wget'
+brew 'vim'
+brew 'neovim'
+brew 'awk'
+brew 'tmux'
+brew 'the_silver_searcher'
+brew 'fzf'
+brew 'lazydocker'
 
 # Development
 brew 'php'
 brew 'php@7.3'
-brew 'php@7.2'
+brew 'php@7.4'
 brew 'imagemagick'
 
 # Apps
