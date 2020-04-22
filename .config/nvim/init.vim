@@ -18,7 +18,7 @@ set clipboard=unnamed
 "------Plugins-----"
 " Specify a directory for plugins
 " - Avoid using standard Vim directory names like 'plugin'
-call plug#begin($HOME . '/.vim/plugged')
+call plug#begin($HOME . '/.config/nvim/plugged')
 
 Plug 'w0rp/ale'                        " Async Tool for adding linters,checking,..
 Plug 'mileszs/ack.vim'
@@ -177,12 +177,12 @@ let test#strategy = "iterm"
 
 
 "PDV docblocks
-let g:pdv_template_dir = $HOME ."/.vim/plugged/pdv/templates_snip"
+let g:pdv_template_dir = $HOME ."/.config/nvim/plugged/pdv/templates_snip"
 nnoremap <leader>d :call pdv#DocumentWithSnip()<CR>
 
 "Ultisnips
-set runtimepath+=~/.dotfiles/.vim/snippets
-let g:UltiSnipsSnippetsDir = "~/.vim/snippets/UltiSnips"
+set runtimepath+=~/.dotfiles/.config/nvim/snippets
+let g:UltiSnipsSnippetsDir = "~/.config/nvim/snippets/UltiSnips"
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
