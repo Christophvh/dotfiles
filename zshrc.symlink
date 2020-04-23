@@ -52,7 +52,7 @@ ZSH_CUSTOM=$DOTFILES
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(composer git git-extras httpie github npm sublime vagrant  zsh-autosuggestions alias-tips)
+plugins=(composer git git-extras httpie github npm sublime vagrant zsh-autosuggestions alias-tips)
 
 # Activate Oh-My-Zsh
 source $ZSH/oh-my-zsh.sh
@@ -62,17 +62,13 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
- if [[ -n $SSH_CONNECTION ]]; then
-   export EDITOR='vim'
- else
-   export EDITOR='mvim'
- fi
+export EDITOR='nvim'
+export GIT_EDITOR='nvim'
 
 #Fzf love.
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
 export FZF_DEFAULT_COMMAND='ag -a --hidden --ignore .git -g ""'
 export FZF_CTRL_T_COMMAND='ag -a --hidden --ignore .git -g ""'
-[ -f ~/.dotfiles/.fzf.zsh ] && source ~/.dotfiles/.fzf.zsh
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -80,6 +76,3 @@ export FZF_CTRL_T_COMMAND='ag -a --hidden --ignore .git -g ""'
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 #
-# NVM node version manager
-export NVM_DIR=~/.dotfiles/.nvm
-source $(brew --prefix nvm)/nvm.sh

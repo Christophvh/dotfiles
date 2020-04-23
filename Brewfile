@@ -27,10 +27,12 @@ brew 'wget'
 brew 'vim'
 brew 'neovim'
 brew 'awk'
+brew 'ack'
 brew 'tmux'
 brew 'the_silver_searcher'
 brew 'fzf'
 brew 'lazydocker'
+brew 'python'
 
 # Development
 brew 'php'
