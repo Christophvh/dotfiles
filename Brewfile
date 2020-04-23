@@ -10,9 +10,6 @@ brew 'coreutils'
 # Install GNU `find`, `locate`, `updatedb`, and `xargs`, g-prefixed
 brew 'findutils'
 
-# Install more recent versions of some macOS tools
-brew 'homebrew/dupes/grep'
-
 # Install Binaries
 brew 'bash'
 brew 'zsh'
