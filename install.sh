@@ -14,6 +14,9 @@ source symlink.sh
       /bin/bash "$( curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh )"
   fi
 
+  #install Oh my zsh
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+
 # Update Homebrew recipes
 brew update
 
