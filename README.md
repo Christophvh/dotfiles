@@ -20,3 +20,18 @@ Your Mac is now ready to use!
 |-------------------------|------------|---------------------------|
 | Main Configuration File  | `~/.vimrc` | `~/.config/nvim/init.vim` |
 | Configuration directory | `~/.vim`   | `~/.config/nvim`          |
+
+### VSCODE
+Vscode does not work with automatic symlinking.
+
+Commands to symlink settings:
+```bash
+ln -s /Users/christophvanhees/.dotfiles/VSCode/settings.json /Users/christophvanhees/Library/Application\ Support/Code/User/settings.json
+```
+
+```bash
+ln -s /Users/christophvanhees/.dotfiles/VSCode/keybindings.json /Users/christophvanhees/Library/Application\ Support/Code/User/keybindings.json
+```
+```bash
+ln -s /Users/christophvanhees/.dotfiles/VSCode/snippets/ /Users/christophvanhees/Library/Application\ Support/Code/User
+```
