@@ -56,7 +56,6 @@ cask 'itsycal'
 # Dev apps
 cask 'insomnia'
 cask 'tableplus'
-cask 'vagrant'
 cask 'virtualbox'
 cask 'cyberduck'
 cask 'figma'
