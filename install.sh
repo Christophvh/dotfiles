@@ -68,4 +68,4 @@ chmod 644 ~/.ssh/id_rsa.pub
 
 # Set macOS preferences
 # We will run this last because this will reload the shell
-source .macos
+source osx.sh
