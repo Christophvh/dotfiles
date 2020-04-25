@@ -20,3 +20,6 @@ defaults write com.apple.finder ShowStatusBar -bool true
 
 echo "Enable Safari’s debug menu"
 defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
+
+defaults write com.apple.dock autohide -bool true
+echo "Automatically hide and show the Dock."
