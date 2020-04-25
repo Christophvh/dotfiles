@@ -1,5 +1,4 @@
 {
-    "workbench.colorTheme": "Palenight Operator",
     "editor.formatOnType": true,
     "explorer.openEditors.visible": 0,
     "workbench.activityBar.visible": false,
@@ -75,7 +74,7 @@
     },
     "explorer.confirmDelete": false,
     "php-cs-fixer.executablePath": "${extensionPath}/php-cs-fixer.phar",
-    "php-cs-fixer.lastDownload": 1586857352983,
+    "php-cs-fixer.lastDownload": 1587818711664,
     "php-cs-fixer.allowRisky": true,
     "php-cs-fixer.onsave": true,
     "explorer.confirmDragAndDrop": false,
@@ -109,4 +108,6 @@
     "php-docblocker.useShortNames": true,
     "[html]": {},
     "vim.vimrc.enable": false,
+    "workbench.colorTheme": "Palenight Operator",
+    "gitProjectManager.openInNewWindow": true,
 }
