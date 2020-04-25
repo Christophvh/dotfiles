@@ -9,6 +9,9 @@ echo "Installing dotfiles..."
 #install Oh my zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
+#Remove zshrc that is installed with oh-my-zsh because we symlink our own later
+rm ~/.zshrc
+
 source symlink.sh
 
 # Check for Homebrew and install if we don't have it
