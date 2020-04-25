@@ -6,6 +6,9 @@ command_exists() {
 
 echo "Installing dotfiles..."
 
+#install Oh my zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+
 source symlink.sh
 
 # Check for Homebrew and install if we don't have it
@@ -13,9 +16,6 @@ source symlink.sh
       echo "Installing homebrew"
       /bin/bash "$( curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh )"
   fi
-
-  #install Oh my zsh
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
 # Update Homebrew recipes
 brew update
@@ -28,9 +28,6 @@ brew bundle
 echo -e "\\n\\nRunning Neovim Python install"
 echo "=============================="
 pip3 install pynvim
-
-# Install PHP extensions with PECL
-pecl install imagick
 
 # Change the default shell to zsh
 zsh_path="$( command -v zsh )"
@@ -57,6 +54,14 @@ npm install --global yarn now doctoc
 # Create a Projects directory
 mkdir $HOME/Documents/Projects
 mkdir $HOME/Documents/Personal-projects
+
+# Set .ssh permissions
+chmod 700 ~/.ssh
+chmod 644 ~/.ssh/authorized_keys
+chmod 644 ~/.ssh/known_hosts
+chmod 644 ~/.ssh/config
+chmod 600 ~/.ssh/id_rsa
+chmod 644 ~/.ssh/id_rsa.pub
 
 # Set macOS preferences
 # We will run this last because this will reload the shell
