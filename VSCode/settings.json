@@ -1,0 +1,112 @@
+{
+    "workbench.colorTheme": "Palenight Operator",
+    "editor.formatOnType": true,
+    "explorer.openEditors.visible": 0,
+    "workbench.activityBar.visible": false,
+    "editor.minimap.enabled": false,
+    "editor.minimap.renderCharacters": false,
+    "editor.fontLigatures": true,
+    "editor.fontFamily": "Cascadia Code",
+    "editor.fontWeight": "bold",
+    "editor.fontSize": 12,
+    "editor.lineHeight": 23,
+    "editor.lineNumbers": "relative",
+    "editor.renderIndentGuides": false,
+    "workbench.editor.showTabs": false,
+    "workbench.tree.renderIndentGuides": "none",
+    //Disable basic php support
+    "php.suggest.basic": false,
+    // VIM
+    "vim.hlsearch": true,
+    "vim.incsearch": true,
+    "vim.leader": ",",
+    "vim.surround": true,
+    "vim.normalModeKeyBindings": [
+        {
+            "before": [
+                "leader",
+                "<space>"
+            ],
+            "commands": [
+                ":nohl",
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "u"
+            ],
+            "commands": [
+                "namespaceResolver.import",
+            ]
+        },
+    ],
+    "vim.visualModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                ">"
+            ],
+            "commands": [
+                "editor.action.indentLines"
+            ]
+        },
+        {
+            "before": [
+                "<"
+            ],
+            "commands": [
+                "editor.action.outdentLines"
+            ]
+        },
+    ],
+    //Git lens plugin
+    "gitlens.blame.heatmap.enabled": false,
+    "gitlens.blame.highlight.enabled": false,
+    "gitlens.codeLens.enabled": false,
+    "gitlens.statusBar.enabled": false,
+    "gitlens.mode.statusBar.enabled": false,
+    "gitlens.settings.mode": "advanced",
+    "workbench.iconTheme": "ayu",
+    "workbench.startupEditor": "newUntitledFile",
+    //Emmet
+    "emmet.triggerExpansionOnTab": true,
+    "emmet.includeLanguages": {
+        "blade": "html",
+    },
+    "explorer.confirmDelete": false,
+    "php-cs-fixer.executablePath": "${extensionPath}/php-cs-fixer.phar",
+    "php-cs-fixer.lastDownload": 1586857352983,
+    "php-cs-fixer.allowRisky": true,
+    "php-cs-fixer.onsave": true,
+    "explorer.confirmDragAndDrop": false,
+    "php-cs-fixer.config": ".php_cs;.php_cs.dist",
+    "[php]": {
+        "editor.defaultFormatter": "junstyle.php-cs-fixer"
+    },
+    "editor.formatOnSave": true,
+    "vetur.format.options.tabSize": 4,
+    "vetur.format.defaultFormatterOptions": {
+        "js-beautify-html": {
+            "wrap_attributes": "force-expand-multiline",
+        },
+        "prettyhtml": {
+            "printWidth": 100,
+            "singleQuote": false,
+            "wrapAttributes": false,
+            "sortAttributes": false
+        },
+        "prettier": {
+            "singleQuote": true,
+            "trailingComma": "all"
+        }
+    },
+    "window.zoomLevel": 0,
+    "editor.formatOnSaveTimeout": 5000,
+    "cSpell.allowCompoundWords": true,
+    "editor.renderWhitespace": "selection",
+    "php-docblocker.qualifyClassNames": true,
+    "php-docblocker.returnGap": true,
+    "php-docblocker.useShortNames": true,
+    "[html]": {},
+    "vim.vimrc.enable": false,
+}
