@@ -9,10 +9,10 @@
     "editor.fontWeight": "bold",
     "editor.fontSize": 12,
     "editor.lineHeight": 23,
-    "editor.lineNumbers": "relative",
-    "editor.renderIndentGuides": false,
+    "editor.lineNumbers": "on",
     "workbench.editor.showTabs": false,
     "workbench.tree.renderIndentGuides": "none",
+    "editor.detectIndentation": false,
     //Disable basic php support
     "php.suggest.basic": false,
     // VIM
@@ -22,41 +22,23 @@
     "vim.surround": true,
     "vim.normalModeKeyBindings": [
         {
-            "before": [
-                "leader",
-                "<space>"
-            ],
-            "commands": [
-                ":nohl",
-            ]
+            "before": ["leader", "<space>"],
+            "commands": [":nohl"]
         },
         {
-            "before": [
-                "leader",
-                "u"
-            ],
-            "commands": [
-                "namespaceResolver.import",
-            ]
-        },
+            "before": ["leader", "u"],
+            "commands": ["namespaceResolver.import"]
+        }
     ],
     "vim.visualModeKeyBindingsNonRecursive": [
         {
-            "before": [
-                ">"
-            ],
-            "commands": [
-                "editor.action.indentLines"
-            ]
+            "before": [">"],
+            "commands": ["editor.action.indentLines"]
         },
         {
-            "before": [
-                "<"
-            ],
-            "commands": [
-                "editor.action.outdentLines"
-            ]
-        },
+            "before": ["<"],
+            "commands": ["editor.action.outdentLines"]
+        }
     ],
     //Git lens plugin
     "gitlens.blame.heatmap.enabled": false,
@@ -71,43 +53,67 @@
     "emmet.triggerExpansionOnTab": true,
     "emmet.includeLanguages": {
         "blade": "html",
+        "postcss": "css"
     },
     "explorer.confirmDelete": false,
-    "php-cs-fixer.executablePath": "${extensionPath}/php-cs-fixer.phar",
-    "php-cs-fixer.lastDownload": 1587818711664,
-    "php-cs-fixer.allowRisky": true,
-    "php-cs-fixer.onsave": true,
     "explorer.confirmDragAndDrop": false,
-    "php-cs-fixer.config": ".php_cs;.php_cs.dist",
-    "[php]": {
-        "editor.defaultFormatter": "junstyle.php-cs-fixer"
-    },
+    "simple-php-cs-fixer.useConfig": true,
+    "simple-php-cs-fixer.config": ".php-cs-fixer.php",
+    "simple-php-cs-fixer.save": true,
     "editor.formatOnSave": true,
-    "vetur.format.options.tabSize": 4,
-    "vetur.format.defaultFormatterOptions": {
-        "js-beautify-html": {
-            "wrap_attributes": "force-expand-multiline",
-        },
-        "prettyhtml": {
-            "printWidth": 100,
-            "singleQuote": false,
-            "wrapAttributes": false,
-            "sortAttributes": false
-        },
-        "prettier": {
-            "singleQuote": true,
-            "trailingComma": "all"
-        }
-    },
-    "window.zoomLevel": 0,
-    "editor.formatOnSaveTimeout": 5000,
-    "cSpell.allowCompoundWords": true,
     "editor.renderWhitespace": "selection",
     "php-docblocker.qualifyClassNames": true,
     "php-docblocker.returnGap": true,
     "php-docblocker.useShortNames": true,
-    "[html]": {},
     "vim.vimrc.enable": false,
     "workbench.colorTheme": "Palenight Operator",
     "gitProjectManager.openInNewWindow": true,
+    "prettier.useTabs": false,
+    "twig-language.endComma": "none",
+    // "prettier.disableLanguages": ["markdown", "md", "PHP", "yaml", "twig", "blade", "graphql"],
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "editor.wordWrapColumn": 100,
+    "files.associations": {
+        ".blade.php": "html",
+        ".tpl": "html",
+        "*.css": "tailwindcss"
+    },
+    "editor.quickSuggestions": {
+        "strings": true
+    },
+    "tailwindCSS.includeLanguages": {
+        "javascript": "javascript",
+        "html": "HTML"
+    },
+    "prettier.printWidth": 100,
+    "prettier.singleQuote": true,
+    "prettier.tabWidth": 4,
+    "editor.cursorStyle": "line",
+    "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
+    "editor.wordWrap": "off",
+    "[php]": {},
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "editor.guides.indentation": false,
+    "editor.bracketPairColorization.enabled": false,
+    "[blade]": {
+        "editor.defaultFormatter": "shufo.vscode-blade-formatter"
+    },
+    "[yaml]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+        "editor.autoIndent": "advanced",
+        "editor.defaultFormatter": "redhat.vscode-yaml",
+    },
+
+    "bladeFormatter.format.wrapAttributes": "preserve",
+    "editor.inlineSuggest.enabled": true,
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "tailwindCSS.emmetCompletions": true,
+    // "php-cs-fixer.executablePath": "/Users/christophvanhees/.composer/vendor/bin/php-cs-fixer",
 }

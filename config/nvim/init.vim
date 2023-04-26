@@ -131,7 +131,8 @@ endif
 let NERDTreeHijackNetrw = 0
 let NERDTreeShowHidden=1
 "Toggle sidebar
-nmap <Leader>1 :NERDTreeToggle<cr>
+nmap <Leader>b :NERDTreeToggle<cr>
+nmap <Leader>n :NERDTreeFind<cr>
 
 
 "Php-cs fixer

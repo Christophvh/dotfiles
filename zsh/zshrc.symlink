@@ -86,6 +86,7 @@ export PATH="$HOME/.node/bin:$PATH"
 
 # Use project specific binaries before global ones
 export PATH="node_modules/.bin:vendor/bin:$PATH"
+export PATH="./node_modules/.bin:$PATH"
 
 # Local bin directories before anything else
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
@@ -120,6 +121,9 @@ alias .....="cd ../../../.."
 # Laravel
 alias art="php artisan"
 
+# Sail
+alias sail="bash vendor/bin/sail"
+
 # Vagrant
 alias v="vagrant global-status"
 alias vup="vagrant up"
@@ -127,3 +131,9 @@ alias vhalt="vagrant halt"
 alias vssh="vagrant ssh"
 alias vreload="vagrant reload"
 alias vrebuild="vagrant destroy --force && vagrant up"
+
+# Python fix
+alias python=/usr/bin/python3
+
+#fnm
+eval "$(fnm env --use-on-cd)"
