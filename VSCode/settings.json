@@ -22,22 +22,40 @@
     "vim.surround": true,
     "vim.normalModeKeyBindings": [
         {
-            "before": ["leader", "<space>"],
-            "commands": [":nohl"]
+            "before": [
+                "leader",
+                "<space>"
+            ],
+            "commands": [
+                ":nohl"
+            ]
         },
         {
-            "before": ["leader", "u"],
-            "commands": ["namespaceResolver.import"]
+            "before": [
+                "leader",
+                "u"
+            ],
+            "commands": [
+                "namespaceResolver.import"
+            ]
         }
     ],
     "vim.visualModeKeyBindingsNonRecursive": [
         {
-            "before": [">"],
-            "commands": ["editor.action.indentLines"]
+            "before": [
+                ">"
+            ],
+            "commands": [
+                "editor.action.indentLines"
+            ]
         },
         {
-            "before": ["<"],
-            "commands": ["editor.action.outdentLines"]
+            "before": [
+                "<"
+            ],
+            "commands": [
+                "editor.action.outdentLines"
+            ]
         }
     ],
     //Git lens plugin
@@ -46,8 +64,7 @@
     "gitlens.codeLens.enabled": false,
     "gitlens.statusBar.enabled": false,
     "gitlens.mode.statusBar.enabled": false,
-    "gitlens.settings.mode": "advanced",
-    "workbench.iconTheme": "ayu",
+    "workbench.iconTheme": "vscode-icons",
     "workbench.startupEditor": "newUntitledFile",
     //Emmet
     "emmet.triggerExpansionOnTab": true,
@@ -69,11 +86,11 @@
     "workbench.colorTheme": "Palenight Operator",
     "gitProjectManager.openInNewWindow": true,
     "prettier.useTabs": false,
-    "twig-language.endComma": "none",
     // "prettier.disableLanguages": ["markdown", "md", "PHP", "yaml", "twig", "blade", "graphql"],
     "editor.codeActionsOnSave": {
         "source.fixAll.eslint": true
     },
+    "eslint.codeActionsOnSave.mode": "problems",
     "editor.wordWrapColumn": 100,
     "files.associations": {
         ".blade.php": "html",
@@ -85,7 +102,8 @@
     },
     "tailwindCSS.includeLanguages": {
         "javascript": "javascript",
-        "html": "HTML"
+        "html": "HTML",
+        "typescriptreact": "html"
     },
     "prettier.printWidth": 100,
     "prettier.singleQuote": true,
@@ -108,12 +126,21 @@
         "editor.autoIndent": "advanced",
         "editor.defaultFormatter": "redhat.vscode-yaml",
     },
-
     "bladeFormatter.format.wrapAttributes": "preserve",
     "editor.inlineSuggest.enabled": true,
     "[javascript]": {
         "editor.defaultFormatter": "vscode.typescript-language-features"
     },
     "tailwindCSS.emmetCompletions": true,
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "eslint.codeActionsOnSave.rules": null,
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
     // "php-cs-fixer.executablePath": "/Users/christophvanhees/.composer/vendor/bin/php-cs-fixer",
 }
