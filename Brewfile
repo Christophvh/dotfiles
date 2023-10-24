@@ -29,11 +29,10 @@ brew 'the_silver_searcher'
 brew 'fzf'
 brew 'lazydocker'
 brew 'python'
+brew 'ripgrep'
 
 # Development
 brew 'php'
-brew 'php@7.3'
-brew 'php@7.4'
 brew 'imagemagick'
 
 # Apps
@@ -43,19 +42,14 @@ cask 'slack'
 cask 'vlc'
 cask 'sourcetree'
 cask 'spotify'
-cask 'moom'
-cask 'avocode'
 cask 'notion'
-cask 'caffeine'
 cask 'plex'
 cask 'cleanmymac'
 cask 'dropbox'
-cask 'itsycal'
 
 # Dev apps
 cask 'insomnia'
 cask 'tableplus'
-cask 'virtualbox'
 cask 'cyberduck'
 cask 'figma'
 cask 'docker'
@@ -64,18 +58,10 @@ cask 'iterm2'
 # Browsers
 cask 'firefox'
 cask 'google-chrome'
-cask 'microsoft-edge'
 
 # Editors
 cask 'sublime-text'
 cask 'visual-studio-code'
-
-# Quicklook
-cask 'qlcolorcode'
-cask 'qlmarkdown'
-cask 'quicklook-json'
-cask 'quicklook-csv'
-cask 'qlstephen'
 
 # Fonts
 cask 'font-source-code-pro-for-powerline'
@@ -86,9 +72,6 @@ cask 'font-cascadia'
 cask 'font-fira-code'
 
 # Install Mac App Store apps
-mas 'Gapplin', id: 768053424
-mas 'Keynote', id: 409183694
 mas '1Password 7', id: 1333542190
-mas 'Spark', id: 1176895641
 mas 'Microsoft Word', id: 462054704
 mas 'Microsoft Excel', id: 462058435
