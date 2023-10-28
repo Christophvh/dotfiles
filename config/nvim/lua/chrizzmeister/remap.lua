@@ -33,7 +33,7 @@ vim.keymap.set("x", "<", "<gv")
 
 -- Saving remap
 vim.keymap.set("n", "<leader>w", ":update<cr>")
-vim.keymap.set("i", "<leader>w", "<Esc>:update<cr>gi")
+-- vim.keymap.set("i", "<leader>w", "<Esc>:update<cr>gi")
 
 -- rename current selection
 vim.keymap.set("n", "<leader>rs", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])

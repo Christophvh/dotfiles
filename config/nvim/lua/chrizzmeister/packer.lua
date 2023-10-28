@@ -16,6 +16,9 @@ return require("packer").startup(function(use)
 		requires = { { "nvim-lua/plenary.nvim" } },
 	})
 
+	-- Telescope extension to open last opened file
+	use({ "smartpde/telescope-recent-files" })
+
 	use({ "catppuccin/nvim", as = "catppuccin" })
 
 	use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
@@ -77,18 +80,20 @@ return require("packer").startup(function(use)
 		end,
 	})
 
-    -- Git changes/Git blame
+	-- Git changes/Git blame
 	use("lewis6991/gitsigns.nvim")
 
-    use {
-        "windwp/nvim-autopairs",
-        config = function() require("nvim-autopairs").setup {} end
-    }
+	use({
+		"windwp/nvim-autopairs",
+		config = function()
+			require("nvim-autopairs").setup({})
+		end,
+	})
 
-    use({
-        "windwp/nvim-ts-autotag",
-        config = function() 
-            require("nvim-ts-autotag").setup()
-        end,
-    })
+	use({
+		"windwp/nvim-ts-autotag",
+		config = function()
+			require("nvim-ts-autotag").setup()
+		end,
+	})
 end)
