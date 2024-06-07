@@ -80,6 +80,8 @@ return require("packer").startup(function(use)
 		end,
 	})
 
+	use("zapling/mason-conform.nvim")
+
 	-- Git changes/Git blame
 	use("lewis6991/gitsigns.nvim")
 
