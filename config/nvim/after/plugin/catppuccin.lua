@@ -6,7 +6,7 @@ require("catppuccin").setup({
 		telescope = true,
 		dashboard = true,
 		neotree = true,
-		which_key = true,
+		which_key = false
 	},
 	flavour = "mocha",
 })

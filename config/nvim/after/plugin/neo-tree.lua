@@ -26,6 +26,9 @@ require("neo-tree").setup({
 			symbol = "+",
 			highlight = "NeoTreeModified",
 		},
+        file_size = {
+            enabled = false
+          },
 	},
 })
 

@@ -62,15 +62,15 @@ return require("packer").startup(function(use)
 		requires = { "nvim-tree/nvim-web-devicons", opt = true },
 	})
 
-	-- Key mapping helper
-	use({
-		"folke/which-key.nvim",
-		config = function()
-			vim.o.timeout = true
-			vim.o.timeoutlen = 300
-			require("which-key").setup({})
-		end,
-	})
+	-- -- -- Key mapping helper
+	-- use({
+	-- 	"folke/which-key.nvim",
+	-- 	config = function()
+	-- 		vim.o.timeout = true
+	-- 		vim.o.timeoutlen = 300
+	-- 		require("which-key").setup({})
+	-- 	end,
+	-- })
 
 	-- Formatter/Linter
 	use({
