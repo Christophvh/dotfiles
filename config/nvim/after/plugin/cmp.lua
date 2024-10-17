@@ -35,6 +35,7 @@ cmp.setup({
 			require("luasnip").lsp_expand(args.body)
 		end,
 	},
+    auto_brackets = {}, -- configure any filetype to auto add brackets
 	mapping = cmp.mapping.preset.insert({
         ["<Tab>"] = cmp_action.tab_complete(),
         ["<S-Tab>"] = cmp_action.select_prev_or_fallback(),

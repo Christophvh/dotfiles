@@ -23,8 +23,17 @@ return require("packer").startup(function(use)
 
 	use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
 	use("tpope/vim-fugitive")
-	use("tpope/vim-commentary")
+	-- use("tpope/vim-commentary")
 	use("tpope/vim-surround")
+
+	use({
+		"folke/ts-comments.nvim",
+	})
+
+	use({
+		"folke/todo-comments.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
+	})
 
 	-- LSP setup
 
@@ -62,16 +71,6 @@ return require("packer").startup(function(use)
 		requires = { "nvim-tree/nvim-web-devicons", opt = true },
 	})
 
-	-- -- -- Key mapping helper
-	-- use({
-	-- 	"folke/which-key.nvim",
-	-- 	config = function()
-	-- 		vim.o.timeout = true
-	-- 		vim.o.timeoutlen = 300
-	-- 		require("which-key").setup({})
-	-- 	end,
-	-- })
-
 	-- Formatter/Linter
 	use({
 		"stevearc/conform.nvim",
@@ -98,4 +97,20 @@ return require("packer").startup(function(use)
 			require("nvim-ts-autotag").setup()
 		end,
 	})
+
+	-- Markdown Preview
+	use({
+		"iamcco/markdown-preview.nvim",
+		run = "cd app && npm install",
+		setup = function()
+			vim.g.mkdp_filetypes = { "markdown" }
+		end,
+		ft = { "markdown" },
+	})
+
+    -- UI overhaul
+    use({"MunifTanjim/nui.nvim"})
+    -- use({"rcarriga/nvim-notify"})
+    use({"folke/noice.nvim"})
+
 end)

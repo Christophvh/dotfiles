@@ -1,4 +1,5 @@
 vim.g.mapleader = ","
+-- File list starting from the current working file
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 -- Move selected blocks around
@@ -36,4 +37,4 @@ vim.keymap.set("n", "<leader>w", ":update<cr>")
 -- vim.keymap.set("i", "<leader>w", "<Esc>:update<cr>gi")
 
 -- rename current selection
-vim.keymap.set("n", "<leader>rs", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+vim.keymap.set("n", "<leader>rn", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
