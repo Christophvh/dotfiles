@@ -129,3 +129,8 @@ alias python=/usr/bin/python3
 
 #fnm
 eval "$(fnm env --use-on-cd)"
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/christophvanhees/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions
