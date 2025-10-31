@@ -11,6 +11,8 @@ return {
 		},
 		keys = {
 			{ "<leader>b", "<cmd>Neotree toggle<cr>", desc = "Toggle Neo-tree" },
+			{ "<leader>nf", "<cmd>Neotree float<cr>", desc = "Toggle Neo-tree Float" },
+			{ "<leader>ng", "<cmd>Neotree float git_status<cr>", desc = "Toggle Neo-tree Float git status" },
 		},
 		lazy = false, -- neo-tree will lazily load itself
 		---@module "neo-tree"
@@ -49,7 +51,9 @@ return {
 					enabled = false,
 				},
 			},
+			window = {
+				width = 50,
+			},
 		},
 	},
 }
-

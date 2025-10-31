@@ -22,8 +22,16 @@ vim.opt.termguicolors = true
 
 -- Filetypes
 vim.filetype.add({
+	extension = {
+		env = "dotenv",
+	},
+	filename = {
+		[".env"] = "dotenv",
+		["env"] = "dotenv",
+	},
 	pattern = {
 		[".*%.blade%.php"] = "blade",
+		["%.env%.[%w_.-]+"] = "dotenv",
 	},
 })
 

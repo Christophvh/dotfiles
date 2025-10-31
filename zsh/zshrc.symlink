@@ -128,7 +128,7 @@ alias sail="bash vendor/bin/sail"
 alias python=/usr/bin/python3
 
 #fnm
-eval "$(fnm env --use-on-cd)"
+eval "$(fnm env --use-on-cd --shell zsh)"
 # The following lines have been added by Docker Desktop to enable Docker CLI completions.
 fpath=(/Users/christophvanhees/.docker/completions $fpath)
 autoload -Uz compinit

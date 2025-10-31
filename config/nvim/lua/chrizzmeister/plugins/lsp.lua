@@ -37,8 +37,6 @@ return {
 		"hrsh7th/cmp-path",
 		"hrsh7th/cmp-cmdline",
 		"hrsh7th/nvim-cmp",
-		"L3MON4D3/LuaSnip",
-		"saadparwaiz1/cmp_luasnip",
 	},
 
 	config = function()
@@ -54,13 +52,14 @@ return {
 		require("mason").setup()
 		require("mason-lspconfig").setup({
 			ensure_installed = {
+				"stylua",
 				"lua_ls",
 				"dockerls",
 				"eslint",
 				"graphql",
 				"html",
 				"tailwindcss",
-				"ts_ls",
+				-- "ts_ls" => use typescript-tools.nvim instead,
 			},
 			handlers = {
 				function(server_name) -- default handler (optional)
@@ -89,6 +88,44 @@ return {
 					})
 				end,
 
+				["eslint"] = function()
+					local lspconfig = require("lspconfig")
+					lspconfig.eslint.setup({
+						capabilities = capabilities,
+						on_attach = function(client, bufnr)
+							client.server_capabilities.documentFormattingProvider = true
+						end,
+						root_dir = function(fname)
+							-- Try to find the nearest eslint config (for both ESLint 8 and 9)
+							local eslint_config_root = lspconfig.util.root_pattern(
+								"eslint.config.js",
+								"eslint.config.mjs",
+								"eslint.config.cjs",
+								".eslintrc.js",
+								".eslintrc.cjs",
+								".eslintrc.yaml",
+								".eslintrc.yml",
+								".eslintrc.json",
+								".eslintrc"
+							)(fname)
+							-- If we found an eslint config, use that directory
+							if eslint_config_root then
+								return eslint_config_root
+							end
+							-- Otherwise, find the nearest package.json
+							return lspconfig.util.root_pattern("package.json")(fname)
+						end,
+						settings = {
+							-- Auto-detect package manager and ESLint version
+							packageManager = "auto",
+							-- Enable flat config detection for ESLint 9
+							experimental = {
+								useFlatConfig = nil, -- Let ESLint auto-detect
+							},
+						},
+					})
+				end,
+
 				["tailwindcss"] = function()
 					local lspconfig = require("lspconfig")
 					lspconfig.tailwindcss.setup({
@@ -110,11 +147,6 @@ return {
 		local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
 		cmp.setup({
-			snippet = {
-				expand = function(args)
-					require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
-				end,
-			},
 			mapping = cmp.mapping.preset.insert({
 				["<Tab>"] = cmp.mapping(function(fallback)
 					if cmp.visible() then
@@ -147,7 +179,6 @@ return {
 			sources = cmp.config.sources({
 				{ name = "copilot", group_index = 2 },
 				{ name = "nvim_lsp" },
-				{ name = "luasnip" }, -- For luasnip users.
 			}, {
 				{ name = "buffer" },
 			}),
