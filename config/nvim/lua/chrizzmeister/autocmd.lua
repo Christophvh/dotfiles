@@ -8,17 +8,39 @@ autocmd("TextYankPost", {
 	group = yank_group,
 	pattern = "*",
 	callback = function()
-		vim.highlight.on_yank({
+		vim.hl.on_yank({
 			higroup = "IncSearch",
 			timeout = 40,
 		})
 	end,
 })
 
+-- Trailing whitespace: skip formatters' filetypes (prettier/stylua handle this)
 autocmd({ "BufWritePre" }, {
 	group = ChrizzmeisterGroup,
 	pattern = "*",
-	command = [[%s/\s\+$//e]],
+	callback = function(args)
+		local ft = vim.bo[args.buf].filetype
+		local skip = {
+			typescript = true,
+			typescriptreact = true,
+			javascript = true,
+			javascriptreact = true,
+			json = true,
+			yaml = true,
+			html = true,
+			css = true,
+			scss = true,
+			markdown = true,
+			lua = true,
+		}
+		if skip[ft] or vim.bo[args.buf].binary then
+			return
+		end
+		local view = vim.fn.winsaveview()
+		vim.cmd([[%s/\s\+$//e]])
+		vim.fn.winrestview(view)
+	end,
 })
 
 autocmd("LspAttach", {
@@ -50,10 +72,10 @@ autocmd("LspAttach", {
 			vim.lsp.buf.signature_help()
 		end, opts)
 		vim.keymap.set("n", "[d", function()
-			vim.diagnostic.goto_next()
+			vim.diagnostic.jump({ count = -1, float = true })
 		end, opts)
 		vim.keymap.set("n", "]d", function()
-			vim.diagnostic.goto_prev()
+			vim.diagnostic.jump({ count = 1, float = true })
 		end, opts)
 	end,
 })

@@ -11,7 +11,8 @@ return {
 			image = { enabled = true },
 			bigfile = { enabled = true },
 			dashboard = { enabled = true },
-			scroll = { enabled = true },
+			-- Smooth scroll looks nice but adds input latency; keep off for snappiness
+			scroll = { enabled = false },
 			quickfile = { enabled = true },
 
 			explorer = { enabled = false },

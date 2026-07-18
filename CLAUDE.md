@@ -44,7 +44,6 @@ brew update               # Update Homebrew
 
 ```bash
 pip3 install pynvim       # Neovim Python support
-composer global require laravel/installer laravel/valet  # PHP tools
 npm install --global yarn now doctoc  # Node.js tools
 ```
 
@@ -73,7 +72,6 @@ The repository uses a dual-symlink approach:
 - Main config: `init.lua`
 - Personal config: `lua/chrizzmeister/`
 - Plugin configs: `lua/plugins/` and `after/plugin/`
-- Includes Blade syntax highlighting for Laravel
 
 **Key Neovim files:**
 
@@ -102,8 +100,7 @@ The repository uses a dual-symlink approach:
 
 **Supported Languages/Tools:**
 
-- PHP (with Laravel Valet)
-- Node.js (with NPM)
+- Node.js / TypeScript (with NPM)
 - Python (with pip3)
 - Git (with global config)
 - Tmux (terminal multiplexer)
@@ -112,12 +109,11 @@ The repository uses a dual-symlink approach:
 **Key Brewfile packages:**
 
 - Core: `git`, `zsh`, `tmux`, `neovim`, `fzf`, `ripgrep`
-- Development: `php`, `node`, `python`
+- Development: `node`, `python`
 - Tools: `lazydocker`, `the_silver_searcher`, `ack`
 
 **Additional files:**
 
-- `composer.phar` - PHP Composer dependency manager
 - `tmux/base16.sh` - Base16 color scheme for tmux
 - `.claude/` - Claude Code configuration directory
 

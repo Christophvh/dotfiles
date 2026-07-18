@@ -55,7 +55,7 @@ ZSH_CUSTOM=$DOTFILES/zsh
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(composer git git-extras httpie github npm sublime vagrant zsh-autosuggestions alias-tips)
+plugins=(git git-extras httpie github npm sublime vagrant zsh-autosuggestions alias-tips)
 
 ZSH_DISABLE_COMPFIX=true
 # Activate Oh-My-Zsh
@@ -85,17 +85,14 @@ export FZF_CTRL_T_COMMAND='ag -a --hidden --ignore .git -g ""'
 export PATH="$HOME/.node/bin:$PATH"
 
 # Use project specific binaries before global ones
-export PATH="node_modules/.bin:vendor/bin:$PATH"
+export PATH="node_modules/.bin:$PATH"
 export PATH="./node_modules/.bin:$PATH"
 
 # Local bin directories before anything else
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 export PATH="$DOTFILES/bin:$PATH"
-
-# Composer
-export PATH="/.composer/vendor/bin:./vendor/bin:$PATH"
-
 
 # Shortcuts
 alias copyssh="pbcopy < $HOME/.ssh/id_rsa.pub"
@@ -117,12 +114,6 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
-
-# Laravel
-alias art="php artisan"
-
-# Sail
-alias sail="bash vendor/bin/sail"
 
 # Python fix
 alias python=/usr/bin/python3

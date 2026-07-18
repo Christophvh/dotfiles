@@ -15,7 +15,7 @@ return {
 				flavour = "macchiato",
 				integrations = {
 					treesitter = true,
-					cmp = true,
+					blink = true,
 					gitsigns = true,
 					nvim_surround = true,
 					telescope = {
@@ -30,7 +30,6 @@ return {
 					native_lsp = {
 						enabled = true,
 					},
-					ts_rainbow = true,
 				},
 				-- Code syntax styles
 				styles = {

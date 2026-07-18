@@ -31,7 +31,6 @@ brew 'python'
 brew 'ripgrep'
 
 # Development
-brew 'php'
 brew 'imagemagick'
 
 # Editors

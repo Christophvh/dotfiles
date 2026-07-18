@@ -12,8 +12,6 @@
   "workbench.editor.showTabs": "single",
   "workbench.tree.renderIndentGuides": "none",
   "editor.detectIndentation": false,
-  //Disable basic php support
-  "php.suggest.basic": false,
   // VIM
   "vim.hlsearch": true,
   "vim.incsearch": true,
@@ -23,10 +21,6 @@
     {
       "before": ["leader", "<space>"],
       "commands": [":nohl"]
-    },
-    {
-      "before": ["leader", "u"],
-      "commands": ["namespaceResolver.import"]
     }
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
@@ -50,31 +44,22 @@
   //Emmet
   "emmet.triggerExpansionOnTab": true,
   "emmet.includeLanguages": {
-    "blade": "html",
     "postcss": "css"
   },
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
-  "simple-php-cs-fixer.useConfig": true,
-  "simple-php-cs-fixer.config": ".php-cs-fixer.php",
-  "simple-php-cs-fixer.save": true,
   "editor.formatOnSave": true,
   "editor.renderWhitespace": "selection",
-  "php-docblocker.qualifyClassNames": true,
-  "php-docblocker.returnGap": true,
-  "php-docblocker.useShortNames": true,
   "vim.vimrc.enable": false,
   "workbench.colorTheme": "Palenight Operator",
   "gitProjectManager.openInNewWindow": true,
   "prettier.useTabs": false,
-  // "prettier.disableLanguages": ["markdown", "md", "PHP", "yaml", "twig", "blade", "graphql"],
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
   },
   "eslint.codeActionsOnSave.mode": "problems",
   "editor.wordWrapColumn": 100,
   "files.associations": {
-    ".blade.php": "html",
     ".tpl": "html",
     "*.css": "tailwindcss"
   },
@@ -92,22 +77,17 @@
   "editor.cursorStyle": "line",
   "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
   "editor.wordWrap": "off",
-  "[php]": {},
   "[json]": {
     "editor.defaultFormatter": "vscode.json-language-features"
   },
   "editor.guides.indentation": false,
   "editor.bracketPairColorization.enabled": false,
-  "[blade]": {
-    "editor.defaultFormatter": "shufo.vscode-blade-formatter"
-  },
   "[yaml]": {
     "editor.insertSpaces": true,
     "editor.tabSize": 2,
     "editor.autoIndent": "advanced",
     "editor.defaultFormatter": "redhat.vscode-yaml"
   },
-  "bladeFormatter.format.wrapAttributes": "preserve",
   "editor.inlineSuggest.enabled": true,
   "[javascript]": {
     "editor.defaultFormatter": "vscode.typescript-language-features"
@@ -125,6 +105,5 @@
   },
   "workbench.activityBar.location": "hidden",
   "github.copilot.editor.enableAutoCompletions": true
-  // "php-cs-fixer.executablePath": "/Users/christophvanhees/.composer/vendor/bin/php-cs-fixer",
 }
 
