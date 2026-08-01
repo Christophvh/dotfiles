@@ -27,8 +27,7 @@ return {
 			eslint = {
 				-- Squiggles via LSP; autofix-on-save via eslint_d in conform
 				root_dir = function(fname)
-					local util = require("lspconfig").util
-					return util.root_pattern(
+					return vim.fs.root(fname, {
 						"eslint.config.js",
 						"eslint.config.mjs",
 						"eslint.config.cjs",
@@ -37,8 +36,8 @@ return {
 						".eslintrc.yaml",
 						".eslintrc.yml",
 						".eslintrc.json",
-						".eslintrc"
-					)(fname)
+						".eslintrc",
+					})
 				end,
 				settings = {
 					packageManager = "auto",
@@ -65,7 +64,36 @@ return {
 				filetypes = { "graphql" },
 			},
 			html = {},
-			-- ts_ls intentionally omitted: typescript-tools.nvim handles TS/JS
+			vtsls = {
+				settings = {
+					vtsls = {
+						-- Match the project's compiler and configured TypeScript plugins.
+						autoUseWorkspaceTsdk = true,
+						experimental = {
+							completion = {
+								enableServerSideFuzzyMatch = true,
+							},
+						},
+					},
+					typescript = {
+						-- vtsls follows VS Code's memory setting; 0 is not an uncapped server.
+						tsserver = { maxTsServerMemory = 8192 },
+						updateImportsOnFileMove = { enabled = "always" },
+						suggest = { autoImports = true },
+						preferences = {
+							includePackageJsonAutoImports = "auto",
+						},
+						inlayHints = {
+							parameterNames = { enabled = "none" },
+							parameterTypes = { enabled = false },
+							variableTypes = { enabled = false },
+							propertyDeclarationTypes = { enabled = false },
+							functionLikeReturnTypes = { enabled = false },
+							enumMemberValues = { enabled = false },
+						},
+					},
+				},
+			},
 		},
 	},
 
@@ -73,20 +101,27 @@ return {
 		-- Neovim 0.12+ enables LSP document colors by default (Tailwind bg-red overlays).
 		vim.lsp.document_color.enable(false)
 
-		local capabilities = require("blink.cmp").get_lsp_capabilities()
+		local capabilities = vim.tbl_deep_extend(
+			"force",
+			require("blink.cmp").get_lsp_capabilities(),
+			require("lsp-file-operations").default_capabilities()
+		)
+
+		local vtsls = opts.servers.vtsls
+		vtsls.settings.javascript = vim.tbl_deep_extend("force", {}, vtsls.settings.typescript)
 
 		require("mason").setup()
 		require("mason-lspconfig").setup({
 			ensure_installed = vim.tbl_keys(opts.servers),
-			handlers = {
-				function(server_name)
-					local server_opts = vim.tbl_deep_extend("force", {}, opts.servers[server_name] or {}, {
-						capabilities = capabilities,
-					})
-					require("lspconfig")[server_name].setup(server_opts)
-				end,
-			},
+			automatic_enable = false,
 		})
+
+		for server_name, server_opts in pairs(opts.servers) do
+			vim.lsp.config(server_name, vim.tbl_deep_extend("force", {}, server_opts, {
+				capabilities = capabilities,
+			}))
+			vim.lsp.enable(server_name)
+		end
 
 		vim.diagnostic.config({
 			virtual_text = true,

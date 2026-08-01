@@ -27,6 +27,12 @@ vim.keymap.set("n", "<C-J>", "<C-W><C-J>")
 vim.keymap.set("n", "<C-K>", "<C-W><C-K>")
 vim.keymap.set("n", "<C-H>", "<C-W><C-H>")
 vim.keymap.set("n", "<C-L>", "<C-W><C-L>")
+-- Also from terminal mode (e.g. the CodeCompanion CLI window): exit terminal
+-- mode, move to the split, and it stays in normal mode there.
+vim.keymap.set("t", "<C-J>", [[<C-\><C-n><C-W><C-J>]])
+vim.keymap.set("t", "<C-K>", [[<C-\><C-n><C-W><C-K>]])
+vim.keymap.set("t", "<C-H>", [[<C-\><C-n><C-W><C-H>]])
+vim.keymap.set("t", "<C-L>", [[<C-\><C-n><C-W><C-L>]])
 
 -- Keep visual selection when indenting
 vim.keymap.set("x", ">", ">gv")

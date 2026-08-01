@@ -3,7 +3,10 @@ return {
 		"nvim-telescope/telescope.nvim",
 		tag = "v0.2.2",
 		lazy = false,
-		dependencies = { "nvim-lua/plenary.nvim" },
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-telescope/telescope-ui-select.nvim",
+		},
 		config = function()
 			local builtin = require("telescope.builtin")
 
@@ -21,6 +24,8 @@ return {
 			vim.keymap.set("n", "<leader><leader>", function()
 				require("telescope").extensions.recent_files.pick()
 			end, { desc = "Recent files" })
+
+			require("telescope").load_extension("ui-select")
 		end,
 	},
 	{

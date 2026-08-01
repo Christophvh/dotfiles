@@ -3,8 +3,7 @@ return {
 		"lewis6991/gitsigns.nvim",
 		event = { "BufReadPre", "BufNewFile" },
 		opts = {
-			-- Blame on every CursorHold is surprisingly expensive; toggle when needed
-			current_line_blame = false,
+			current_line_blame = true, -- Toggle with `:Gitsigns toggle_current_line_blame`
 		},
 	},
 }

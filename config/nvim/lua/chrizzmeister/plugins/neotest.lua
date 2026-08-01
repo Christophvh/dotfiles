@@ -6,12 +6,15 @@ return {
 			"nvim-lua/plenary.nvim",
 			"nvim-treesitter/nvim-treesitter",
 			"nvim-neotest/neotest-jest",
+			"marilari88/neotest-vitest",
 		},
 		keys = {
 			{
 				"<leader>tr",
 				function()
-					require("neotest").run.run()
+					local neotest = require("neotest")
+					neotest.summary.open()
+					neotest.run.run()
 				end,
 				desc = "Run nearest test",
 			},
@@ -37,6 +40,13 @@ return {
 				desc = "Open test output",
 			},
 			{
+				"<leader>tp",
+				function()
+					require("neotest").output_panel.toggle()
+				end,
+				desc = "Toggle test output panel",
+			},
+			{
 				"<leader>ta",
 				function()
 					require("neotest").run.run(vim.fn.getcwd())
@@ -55,6 +65,15 @@ return {
 							return vim.fn.getcwd()
 						end,
 					}),
+					require("neotest-vitest"),
+				},
+				output = {
+					enabled = true,
+					open_on_run = "short",
+				},
+				output_panel = {
+					enabled = true,
+					open = "botright 15new",
 				},
 			})
 		end,

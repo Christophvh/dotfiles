@@ -50,10 +50,18 @@ autocmd("LspAttach", {
 		vim.keymap.set("n", "gd", function()
 			vim.lsp.buf.definition()
 		end, opts)
+		local client = vim.lsp.get_client_by_id(e.data.client_id)
+		if client and client.name == "vtsls" then
+			vim.keymap.set("n", "<leader>gi", function()
+				vim.lsp.buf.code_action({
+					context = { only = { "quickfix" } },
+				})
+			end, { buffer = e.buf, desc = "Add import at cursor" })
+		end
 		vim.keymap.set("n", "K", function()
 			vim.lsp.buf.hover()
 		end, opts)
-		vim.keymap.set("n", "<leader>vws", function()
+		vim.keymap.set("n", "<leader>vs", function()
 			vim.lsp.buf.workspace_symbol()
 		end, opts)
 		vim.keymap.set("n", "<leader>vd", function()
@@ -62,9 +70,10 @@ autocmd("LspAttach", {
 		vim.keymap.set("n", "<leader>vca", function()
 			vim.lsp.buf.code_action()
 		end, opts)
-		vim.keymap.set("n", "<leader>vrr", function()
-			vim.lsp.buf.references()
-		end, opts)
+		vim.keymap.set("n", "grr", require("telescope.builtin").lsp_references, {
+			buffer = e.buf,
+			desc = "References",
+		})
 		vim.keymap.set("n", "<leader>vrn", function()
 			vim.lsp.buf.rename()
 		end, opts)
