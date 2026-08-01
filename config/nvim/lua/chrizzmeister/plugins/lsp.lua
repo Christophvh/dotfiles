@@ -76,7 +76,7 @@ return {
 						},
 					},
 					typescript = {
-						-- vtsls follows VS Code's memory setting; 0 is not an uncapped server.
+						-- vtsls treats 0 differently; use an explicit heap for large monorepos.
 						tsserver = { maxTsServerMemory = 8192 },
 						updateImportsOnFileMove = { enabled = "always" },
 						suggest = { autoImports = true },

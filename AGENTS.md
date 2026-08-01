@@ -16,13 +16,6 @@ macOS dotfiles repo. Config is applied via symlinks (`symlink.sh`) and Homebrew 
 brew bundle           # Install/update from Brewfile
 ```
 
-VSCode is **not** auto-linked:
-
-```bash
-ln -s "$HOME/.dotfiles/VSCode/settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
-ln -s "$HOME/.dotfiles/VSCode/keybindings.json" "$HOME/Library/Application Support/Code/User/keybindings.json"
-```
-
 ## Symlink system
 
 1. `**/*.symlink` → `~/.<basename>` (e.g. `zsh/zshrc.symlink` → `~/.zshrc`)
@@ -49,7 +42,6 @@ config/aerospace/     AeroSpace WM
 zsh/                  Oh My Zsh custom (theme, plugins) + zshrc.symlink
 git/                  gitconfig + global gitignore
 tmux/                 tmux.conf.symlink
-VSCode/               settings + keybindings (manual symlink)
 Brewfile              Homebrew packages
 install.sh / symlink.sh / osx.sh
 ```
@@ -67,7 +59,7 @@ Notable stack:
 
 | Concern | Tool |
 |---|---|
-| TS/JS LSP | `typescript-tools.nvim` (not `ts_ls`) |
+| TS/JS LSP | `vtsls` (not `ts_ls`) |
 | Completion | `blink.cmp` (+ capabilities on LSP clients) |
 | Format / lint-fix | `conform.nvim`: `eslint_d` then `prettierd` on save |
 | ESLint diagnostics | `eslint` LSP (`format = false`) |

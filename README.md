@@ -1,37 +1,75 @@
-### Setting up your Mac
+# Dotfiles
 
-1. Update macOS to the latest version with the App Store
-2. Install Xcode from the App Store, open it and accept the license agreement
-3. Install macOS Command Line Tools by running `xcode-select --install`
-4. Copy public and private SSH keys to `~/.ssh` and make sure they're set to `600`
-5. Clone this repo to `~/.dotfiles`
-6. Run `install.sh` to start the installation
-7. Restart your computer to finalize the process
+macOS development environment managed with Homebrew and symlinks. The primary editor is Neovim.
 
-Your Mac is now ready to use!
+## Bootstrap
 
-> Note: you can use a different location than `~/.dotfiles` if you want. Just make sure you also update the reference in the `.zshrc` file.
+1. Install Xcode Command Line Tools:
 
-## Vim and Neovim Setup
+   ```sh
+   xcode-select --install
+   ```
 
-[Neovim](https://neovim.io/) is a fork and drop-in replacement for vim. in most cases, you would not notice a difference between the two, other than Neovim allows plugins to run asynchronously so that they do not freeze the editor, which is the main reason I have switched over to it. Vim and Neovim both use Vimscript and most plugins will work in both (all of the plugins I use do work in both Vim and Neovim). For this reason, they share the same configuration files in this setup. Neovim uses the [XDG base directory specification](http://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html) which means it won't look for a `.vimrc` in your home directory. Instead, its configuration looks like the following:
+2. Clone the repository:
 
-|                         | Vim        | Neovim                    |
-|-------------------------|------------|---------------------------|
-| Main Configuration File  | `~/.vimrc` | `~/.config/nvim/init.vim` |
-| Configuration directory | `~/.vim`   | `~/.config/nvim`          |
+   ```sh
+   git clone <repository-url> "$HOME/.dotfiles"
+   ```
 
-### VSCODE
-Vscode does not work with automatic symlinking.
+3. Run the installer:
 
-Commands to symlink settings:
-```bash
-ln -s /Users/christophvanhees/.dotfiles/VSCode/settings.json /Users/christophvanhees/Library/Application\ Support/Code/User/settings.json
+   ```sh
+   cd "$HOME/.dotfiles"
+   ./install.sh
+   ```
+
+`install.sh` installs Oh My Zsh, creates symlinks, installs the Brewfile, installs Neovim's Python support, configures the default shell, and applies macOS preferences. Review it before running it on a new machine.
+
+## Day-To-Day Commands
+
+```sh
+./symlink.sh  # Create missing configuration symlinks
+brew bundle   # Install or update Homebrew dependencies
 ```
 
-```bash
-ln -s /Users/christophvanhees/.dotfiles/VSCode/keybindings.json /Users/christophvanhees/Library/Application\ Support/Code/User/keybindings.json
-```
-```bash
-ln -s /Users/christophvanhees/.dotfiles/VSCode/snippets/ /Users/christophvanhees/Library/Application\ Support/Code/User
+Symlinking is safe to re-run: existing destinations are left unchanged.
+
+## Linked Configuration
+
+| Repository path | Destination |
+| --- | --- |
+| `git/gitconfig.symlink` | `~/.gitconfig` |
+| `git/gitignore_global.symlink` | `~/.gitignore_global` |
+| `zsh/zshrc.symlink` | `~/.zshrc` |
+| `tmux/tmux.conf.symlink` | `~/.tmux.conf` |
+| `config/nvim/` | `~/.config/nvim/` |
+| `config/aerospace/` | `~/.config/aerospace/` |
+
+All `*.symlink` files are linked as dotfiles in `$HOME`. Directories under `config/` are linked into `$HOME/.config`.
+
+## Neovim
+
+Neovim is configured with Lua, Lazy.nvim, Mason, and native Neovim LSP configuration.
+
+- TypeScript and JavaScript: `vtsls`, using the workspace TypeScript version.
+- Completion: `blink.cmp` with LSP auto-imports and Codeium/Windsurf ghost text.
+- Diagnostics: ESLint LSP.
+- Formatting and autofixes: Conform runs `eslint_d` followed by `prettierd` on save.
+- Styling: Tailwind CSS LSP with `cva` and `cx` class detection.
+- Tests: Neotest with Jest and Vitest adapters.
+- Parsing: Treesitter with TypeScript, TSX, JavaScript, GraphQL, SQL, and related parsers.
+
+The Treesitter plugin remains on its `master` compatibility branch; its `main` branch is an incompatible rewrite for this configuration.
+
+## Repository Layout
+
+```text
+config/nvim/       Neovim configuration
+config/aerospace/  AeroSpace window manager configuration
+git/               Git configuration and global ignore rules
+zsh/               Oh My Zsh configuration, theme, and plugins
+Brewfile           Homebrew packages
+install.sh         Full machine bootstrap
+symlink.sh         Symlink setup only
+osx.sh             macOS preference setup
 ```
