@@ -1,0 +1,5 @@
+font-family = "CaskaydiaCove Nerd Font Mono"
+font-style = "SemiBold"
+font-size = 13
+theme = Catppuccin Mocha
+keybind = shift+enter=text:\n

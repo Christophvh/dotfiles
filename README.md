@@ -44,6 +44,8 @@ Symlinking is safe to re-run: existing destinations are left unchanged.
 | `tmux/tmux.conf.symlink` | `~/.tmux.conf` |
 | `config/nvim/` | `~/.config/nvim/` |
 | `config/aerospace/` | `~/.config/aerospace/` |
+| `config/ghostty/` | `~/.config/ghostty/` |
+| `config/opencode/` | `~/.config/opencode/` |
 
 All `*.symlink` files are linked as dotfiles in `$HOME`. Directories under `config/` are linked into `$HOME/.config`.
 
@@ -66,6 +68,8 @@ The Treesitter plugin remains on its `master` compatibility branch; its `main` b
 ```text
 config/nvim/       Neovim configuration
 config/aerospace/  AeroSpace window manager configuration
+config/ghostty/    Ghostty terminal configuration
+config/opencode/   OpenCode configuration and local skills
 git/               Git configuration and global ignore rules
 zsh/               Oh My Zsh configuration, theme, and plugins
 Brewfile           Homebrew packages

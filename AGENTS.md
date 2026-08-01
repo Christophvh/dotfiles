@@ -33,12 +33,16 @@ Existing targets are skipped — remove the destination first if you need to rep
 | `tmux/tmux.conf.symlink` | `~/.tmux.conf` |
 | `config/nvim/` | `~/.config/nvim/` |
 | `config/aerospace/` | `~/.config/aerospace/` (`aerospace.toml`) |
+| `config/ghostty/` | `~/.config/ghostty/` |
+| `config/opencode/` | `~/.config/opencode/` |
 
 ## Layout
 
 ```
 config/nvim/          Neovim (Lazy.nvim)
 config/aerospace/     AeroSpace WM
+config/ghostty/       Ghostty terminal
+config/opencode/      OpenCode configuration and local skills
 zsh/                  Oh My Zsh custom (theme, plugins) + zshrc.symlink
 git/                  gitconfig + global gitignore
 tmux/                 tmux.conf.symlink
